@@ -6,3 +6,7 @@ The whole Finland has been Because only most of Finland is covered with digital 
 
 
 <img src=https://github.com/geoportti/KM10_resampling/blob/master/images/dem_availability_small.png>
+
+
+
+<img src=https://github.com/geoportti/KM10_resampling/blob/master/images/comparison.png>
