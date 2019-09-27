@@ -4,10 +4,12 @@ National land survey of Finland provides two kinds of digital elevation models (
 There are many ways to resample raster datasets and they all include some errors. In this example we show a efficient way to resample big areas using python module rasterio. You can read more about the rasterio resampling methods in [here][1]. 
 
 <img src=https://github.com/geoportti/KM10_resampling/blob/master/images/dem_availability_small.png>
-
 Image 1. KM10 and KM2 availability in Finland
 
-##
+## Workflow
+
+
+
 
 
 
