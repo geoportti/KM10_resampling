@@ -70,4 +70,4 @@ Authored by Akseli Toikka and the Department of Geoinformatics and Cartography a
 
 [1]:https://rasterio.readthedocs.io/en/stable/topics/resampling.html
 [2]:https://github.com/geoportti/KM10_resampling/blob/master/km10_resampler.py
-[3]:
+[3]:https://github.com/geoportti/KM10_resampling/blob/master/resampler_batch
