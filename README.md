@@ -7,17 +7,59 @@ There are many ways to resample raster datasets and they all include some errors
 Image 1. KM10 and KM2 availability in Finland
 
 ## Workflow
+Here we go through the [km10_resampler][2] python script step by step.
 
+You can find KM10 files in Taito under the folder /wrk/project_ogiir-csc/mml/dem10m/2015. If you want to resample only certain KM10 files it is good to copy them into a seperate folder at your working directory. You can use the availability grid presented in Image 1 to find out the ID.s of the needed dem files. The grid is available in taito at /wrk/project_ogiir-csc/mml/karttalehtijako/demCombined.
 
+After the wanted KM10 files are stored in seperate folder, we go through that folder with a simple for loop and open the file connection with rasterio:
+``` pythonscript
+km10dir = r'directory of the km10 files'
+outdir = r'directory of the resampled dem files'
 
+# loop through the files 
+for filename in os.listdir(km10dir):
+    #construct the filepath
+    filepath = os.path.join(km10dir,filename)
+    # read the demfile and resample it to 2m resolution using rasterio
+    with rasterio.open(filepath) as dataset:
+```
+The resmpling takes place when we read the dem as a numpy array. Because the KM10 files are 12km tall and 24km wide we just multiply the number of pixels with 5 to get 2m pixels instead of 10m. In this example we use bilinear interpolation method for calculating the walues for the new pixels.
 
+```pythonscript
+        #multiply the heighy and width with 5 to get 2m pixels. In here we use bilinear sampling.
+        data = dataset.read(out_shape=(dataset.count, dataset.height * 5, dataset.width * 5),resampling=Resampling.bilinear)
+```
+In order to save the resampled file, we need to calculate a new transform matrix for the dem. This is done by using rasterios "from_origin" function. After this we will update the metadata file of the dem.
 
+```pythonscript
+        #get dataset bounds for the transform matrix
+        bounds = dataset.bounds
+        #get the uppper left coordinate walues of the dem file
+        west = bounds[0]
+        north = bounds[3]
+        #calculate the new transform matrix using the coordinates. 2 = pixel size
+        out_transform = from_origin(west, north, 2, 2) 
+        out_meta = dataset.meta.copy()
+ 
+    #update the metafile of the output 
+    out_meta.update({"driver": "GTiff",
+                     "height": data.shape[1],
+                     "width": data.shape[2],
+                     "count": data.shape[0],
+                     "crs": dataset.crs,
+                     "transform": out_transform})
+```   
+Now everything is ready for saving the resampled file in your output directory.
 
-
-
-
-
+```pythonscript
+    #rename and save the resampled dem file
+    outname = os.path.join(outdir,'{}_2m.tif'.format(filename[0:5]))
+    with rasterio.open(outname,"w", **out_meta) as dest:
+            dest.write(data)
+    print('resampled',filename,'saved')
+```
 <img src=https://github.com/geoportti/KM10_resampling/blob/master/images/comparison.png>
-
+Image 2. Left: KM10 data, Right: KM10 data resampled to 2m resolution using bilinear resampling by rasterio.
 
 [1]:https://rasterio.readthedocs.io/en/stable/topics/resampling.html
+[2]:scripti
