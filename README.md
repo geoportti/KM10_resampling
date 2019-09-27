@@ -69,4 +69,5 @@ When using the scripts or CSC.s computation services, please cite the oGIIR proj
 Authored by Akseli Toikka and the Department of Geoinformatics and Cartography at FGI
 
 [1]:https://rasterio.readthedocs.io/en/stable/topics/resampling.html
-[2]:scripti
+[2]:https://github.com/geoportti/KM10_resampling/blob/master/km10_resampler.py
+[3]:
