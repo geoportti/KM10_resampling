@@ -7,7 +7,7 @@ There are many ways to resample raster datasets and they all include some errors
 Image 1. KM10 and KM2 availability in Finland
 
 ## Workflow
-Here we go through the [km10_resampler][2] python script step by step. You can run the script in Taito by using the [resampler_batch][3] file.
+Here we go through the [km10_resampler][2] python script step by step. You can run the script in CSC Taito by using the [resampler_batch][3] file.
 
 You can find KM10 files in Taito under the folder /wrk/project_ogiir-csc/mml/dem10m/2015. If you want to resample only certain KM10 files it is good to copy them into a seperate folder at your working directory. You can use the availability grid presented in Image 1 to find out the ID.s of the needed dem files. The grid is available in taito at /wrk/project_ogiir-csc/mml/karttalehtijako/demCombined.
 
