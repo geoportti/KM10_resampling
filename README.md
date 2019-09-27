@@ -1,4 +1,4 @@
-# KM10_resampling
+# KM10 resampling to 2m resolution using Taito
 
 National land survey of Finland provides two kinds of digital elevation models (dem) based on the aerial laser scanning data KM10 and KM2. While KM10 dem (10m pixel size) covers the whole Finland, the KM2 (2m pixel size) covers only most of it (Image 1). When running analyses on big areas it is sometimes nessesary to resample KM10 data to 2m resolution. This way analyses for all areas can be run in same spatial resolution.
 There are many ways to resample raster datasets and they all include some errors. In this example we show a efficient way to resample big areas using python module rasterio. You can read more about the rasterio resampling methods in [here][1]. 
@@ -7,7 +7,7 @@ There are many ways to resample raster datasets and they all include some errors
 Image 1. KM10 and KM2 availability in Finland
 
 ## Workflow
-Here we go through the [km10_resampler][2] python script step by step.
+Here we go through the [km10_resampler][2] python script step by step. You can run the script in Taito by using the [resampler_batch][3] file.
 
 You can find KM10 files in Taito under the folder /wrk/project_ogiir-csc/mml/dem10m/2015. If you want to resample only certain KM10 files it is good to copy them into a seperate folder at your working directory. You can use the availability grid presented in Image 1 to find out the ID.s of the needed dem files. The grid is available in taito at /wrk/project_ogiir-csc/mml/karttalehtijako/demCombined.
 
