@@ -61,7 +61,8 @@ Now everything is ready for saving the resampled file in your output directory.
 <img src=https://github.com/geoportti/KM10_resampling/blob/master/images/comparison.png>
 Image 2. Left: KM10 data, Right: KM10 data resampled to 2m resolution using bilinear resampling by rasterio.
 
-When using the scripts or CSC.s computation services, please cite the oGIIR project: "We made use of geospatial data/instructions/computing resources provided by CSC and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513) funded by the Academy of Finland."
+## Terms of use
+When using the scripts or CSC.s computation services, please cite the oGIIR project: "We made use of geospatial         data/instructions/computing resources provided by CSC and the Open Geospatial Information Infrastructure for Research (oGIIR, urn:nbn:fi:research-infras-2016072513) funded by the Academy of Finland."
 
 Authored by Akseli Toikka and the Department of Geoinformatics and Cartography at FGI
 
